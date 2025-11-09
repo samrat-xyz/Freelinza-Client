@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 
 function Navbar() {
+  const { user,logoutUser } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -18,7 +20,9 @@ function Navbar() {
       </li>
     </>
   );
-
+  const handleLogout = () =>{
+    logoutUser()
+  }
   return (
     <div className=" md:px-3 py-2 bg-base-200 shadow-md ">
       <div className="navbar">
@@ -51,7 +55,10 @@ function Navbar() {
               {links}
             </ul>
           </div>
-          <Link to='/' className="text-2xl md:text-3xl font-semibold  tracking-wide">
+          <Link
+            to="/"
+            className="text-2xl md:text-3xl font-semibold  tracking-wide"
+          >
             Freelinza
           </Link>
         </div>
@@ -61,10 +68,48 @@ function Navbar() {
         </div>
 
         <div className="navbar-end">
-          <div className="flex gap-3">
-            <Link to='/signin' className="btn btn-style ">Sign in</Link>
-            <Link to='/login' className="btn btn-style">Login</Link>
-          </div>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="user"
+                    src={user?.photoURL}
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex="-1"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="flex gap-3">
+              <Link to="/signin" className="btn btn-style ">
+                Sign in
+              </Link>
+              <Link to="/login" className="btn btn-style">
+                Login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
