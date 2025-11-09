@@ -3,26 +3,52 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 
 function Navbar() {
-  const { user,logoutUser } = use(AuthContext);
+  const { user, logoutUser } = use(AuthContext);
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "nav-link-active" : ""
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/all-jobs">All Jobs</NavLink>
+        <NavLink
+          to="/all-jobs"
+          className={({ isActive }) =>
+            isActive ? "nav-link-active" : ""
+          }
+        >
+          All Jobs
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/my-jobs">Add a Job</NavLink>
+        <NavLink
+          to="/my-jobs"
+          className={({ isActive }) =>
+            isActive ? "nav-link-active" : ""
+          }
+        >
+          Add a Job
+        </NavLink>
       </li>
       <li>
-        <NavLink>My Accepted Tasks</NavLink>
+        <NavLink
+          to="/my-accepted-tasks"
+          className={({ isActive }) => (isActive ? "nav-link-active" : "")}
+        >
+          My Accepted Tasks
+        </NavLink>
       </li>
     </>
   );
-  const handleLogout = () =>{
-    logoutUser()
-  }
+  const handleLogout = () => {
+    logoutUser();
+  };
   return (
     <div className=" md:px-3 py-2 bg-base-200 shadow-md ">
       <div className="navbar">
@@ -76,10 +102,7 @@ function Navbar() {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img
-                    alt="user"
-                    src={user?.photoURL}
-                  />
+                  <img alt="user" src={user?.photoURL} />
                 </div>
               </div>
               <ul

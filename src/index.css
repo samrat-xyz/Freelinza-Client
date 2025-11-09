@@ -15,3 +15,7 @@
 .heading-style{
   @apply text-3xl font-bold 
 }
+
+.nav-link-active {
+  @apply text-[#FF2EFF] font-semibold ;
+}
