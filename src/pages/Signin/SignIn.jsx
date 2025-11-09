@@ -1,26 +1,49 @@
 import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router"; 
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const Signin = () => {
- const {createUser,googleLogin} = use(AuthContext)
+  const { createUser, googleLogin } = use(AuthContext);
+  const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
-    
+
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
 
-    console.log({ name, email, photo, password });
-    createUser(email,password)
-    
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordPattern.test(password)) {
+      toast.error(
+        "Password must include at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
+      );
+      return;
+    }
+
+    createUser(email, password)
+      .then(() => {
+        toast.success("Registration Successful");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   const handleGoogleSignup = () => {
     googleLogin()
-
+      .then(() => {
+        toast.success("Signin Successful");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -31,31 +54,32 @@ const Signin = () => {
         </h2>
 
         <form onSubmit={handleRegister} className="space-y-5">
-          {/* Name Field */}
+          {/* Name */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">Name</label>
             <input
               type="text"
               name="name"
               placeholder="Enter your name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none "
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none"
               required
             />
           </div>
 
-          {/* Email Field */}
+          {/* Email */}
           <div>
-            <label className="block text-gray-700 font-medium mb-1">Email</label>
+            <label className="block text-gray-700 font-medium mb-1">
+              Email
+            </label>
             <input
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none "
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none"
               required
             />
           </div>
 
-          {/* Photo URL Field */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Photo URL
@@ -64,11 +88,10 @@ const Signin = () => {
               type="text"
               name="photo"
               placeholder="Enter your photo URL"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none "
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none"
             />
           </div>
 
-          {/* Password Field */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Password
@@ -77,12 +100,11 @@ const Signin = () => {
               type="password"
               name="password"
               placeholder="Create a password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none "
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none"
               required
             />
           </div>
 
-          {/* Register Button */}
           <button
             type="submit"
             className="w-full text-white py-2 rounded-lg font-semibold btn-style"
@@ -91,14 +113,12 @@ const Signin = () => {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center my-6">
           <div className="flex-1 h-px bg-gray-300"></div>
           <span className="px-3 text-gray-500 text-sm">or</span>
           <div className="flex-1 h-px bg-gray-300"></div>
         </div>
 
-        {/* Google Sign-Up Button */}
         <button
           onClick={handleGoogleSignup}
           className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition duration-300 cursor-pointer"
@@ -109,13 +129,9 @@ const Signin = () => {
           </span>
         </button>
 
-        {/* Already have an account */}
         <p className="text-center text-sm text-gray-600 mt-6">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="font-medium hover:underline"
-          >
+          <Link to="/login" className="font-medium hover:underline">
             Login
           </Link>
         </p>

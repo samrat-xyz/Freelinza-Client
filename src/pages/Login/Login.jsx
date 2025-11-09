@@ -1,19 +1,36 @@
 import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router"; 
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const {loginUser, googleLogin } = use(AuthContext);
+  const { loginUser, googleLogin } = use(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const handleGoogleLogin = () => {
-    googleLogin();
+    googleLogin()
+      .then(() => {
+        toast.success("Login Successfull");
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    loginUser(email,password)
+    loginUser(email, password)
+      .then(() => {
+        toast.success("Login Successfull");
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
   return (
     <div className="min-h-screen flex items-center justify-center ">
@@ -23,7 +40,6 @@ const Login = () => {
         </h2>
 
         <form onSubmit={handleLogin} className="space-y-5">
-          {/* Email Field */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Email
@@ -37,7 +53,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Password Field */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Password
@@ -51,14 +66,12 @@ const Login = () => {
             />
           </div>
 
-          {/* Forget Password */}
           <div className="text-right">
             <span className="text-sm hover:underline cursor-pointer">
               Forget Password?
             </span>
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             className="w-full text-white py-2 rounded-lg font-semibold btn-style"
@@ -67,14 +80,11 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center my-6">
           <div className="flex-1 h-px bg-gray-300"></div>
           <span className="px-3 text-gray-500 text-sm">or</span>
           <div className="flex-1 h-px bg-gray-300"></div>
         </div>
-
-        {/* Google Login Button */}
         <button
           onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition duration-300 cursor-pointer"
@@ -85,7 +95,6 @@ const Login = () => {
           </span>
         </button>
 
-        {/* Don't have an account */}
         <p className="text-center text-sm text-gray-600 mt-6">
           Don't have an account?{" "}
           <Link to="/signin" className="font-medium hover:underline">
