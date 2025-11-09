@@ -20,7 +20,7 @@ function Navbar() {
   );
 
   return (
-    <div className="px-1 md:px-3 py-2 bg-base-200 shadow-md ">
+    <div className=" md:px-3 py-2 bg-base-200 shadow-md ">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -51,7 +51,7 @@ function Navbar() {
               {links}
             </ul>
           </div>
-          <Link to='/' className="text-3xl font-semibold  tracking-wide">
+          <Link to='/' className="text-2xl md:text-3xl font-semibold  tracking-wide">
             Freelinza
           </Link>
         </div>
@@ -62,8 +62,8 @@ function Navbar() {
 
         <div className="navbar-end">
           <div className="flex gap-3">
-            <Link className="btn btn-style">Sign up</Link>
-            <Link className="btn btn-style">Login</Link>
+            <Link to='/signin' className="btn btn-style ">Sign in</Link>
+            <Link to='/login' className="btn btn-style">Login</Link>
           </div>
         </div>
       </div>
