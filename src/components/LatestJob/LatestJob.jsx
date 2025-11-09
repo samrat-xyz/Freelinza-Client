@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+
 import JobsCard from '../JobsCard/JobsCard'
 
 function LatestJob() {
     const [jobs,setJobs] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:3030/latest-jobs')
-        .then(res => res.json())
-        .then(data => setJobs(data))
+        axios('http://localhost:3030/latest-jobs')
+        .then(data => setJobs(data.data))
     })
   return (
     <div className=' p-3 bg-base-200'>
