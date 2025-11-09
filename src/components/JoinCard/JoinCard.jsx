@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const JoinCard = () => {
   return (
@@ -24,9 +25,9 @@ const JoinCard = () => {
         Connect with skilled freelancers and bring your projects to life with ease and confidence.
       </motion.p>
 
-      <button className="btn-style px-6 py-2 rounded-full">
+      <Link to='/login' className="btn-style px-6 py-2 rounded-full">
         Join Freelinza
-      </button>
+      </Link>
     </div>
   );
 };
