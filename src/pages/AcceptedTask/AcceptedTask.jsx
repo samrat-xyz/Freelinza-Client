@@ -62,6 +62,7 @@ function AcceptedTask() {
             key={task._id}
             className="bg-base-200 rounded-xl shadow-lg p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:shadow-xl transition-shadow"
           >
+          
             <div className="flex-1">
               <h2 className="text-lg font-semibold text-gray-800">{task.title}</h2>
               <p className="text-gray-600 mt-1">{task.summary}</p>

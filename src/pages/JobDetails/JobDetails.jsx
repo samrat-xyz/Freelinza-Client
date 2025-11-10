@@ -7,10 +7,21 @@ function JobDetails() {
   const job = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { _id, title, summary, coverImage, postedBy, category, userEmail } =
-    job;
+
+  const { _id, title, summary, coverImage, postedBy, category, userEmail } = job;
 
   const handleAccept = () => {
+    if (!user?.email) {
+      Swal.fire({
+        icon: "warning",
+        title: "Login Required",
+        text: "You need to login to accept this job.",
+        confirmButtonText: "Go to Login",
+      }).then(() => {
+        navigate("/login");
+      });
+      return;
+    }
     const acceptedJob = {
       jobId: _id,
       title,
@@ -33,18 +44,32 @@ function JobDetails() {
             "Job Accepted!",
             "You have successfully accepted the job.",
             "success"
+          ).then(() => {
+            navigate("/my-accepted-tasks");
+          });
+        } else {
+          Swal.fire(
+            "Error",
+            "Could not accept job. Please try again later.",
+            "error"
           );
         }
-        navigate("/my-accepted-tasks");
+      })
+      .catch((error) => {
+        console.error("Error accepting job:", error);
+        Swal.fire(
+          "Error",
+          "There was an issue accepting the job. Please try again later.",
+          "error"
+        );
       });
   };
 
   return (
     <div className="max-w-7xl mx-auto mt-10 p-5 grid grid-cols-1 md:grid-cols-3 gap-8">
+     
       <div className="md:col-span-2 bg-white rounded-xl shadow-md p-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-          {title}
-        </h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{title}</h1>
 
         <div className="flex items-center gap-2 mb-5">
           <span className="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-md">
@@ -53,7 +78,7 @@ function JobDetails() {
         </div>
 
         {coverImage && (
-          <div className="w-full h-86 mb-6 overflow-hidden rounded-lg">
+          <div className="w-full h-80 mb-6 overflow-hidden rounded-lg">
             <img
               src={coverImage}
               alt={title}
@@ -62,12 +87,11 @@ function JobDetails() {
           </div>
         )}
 
-        <h2 className="text-xl font-semibold text-gray-800 mb-3">
-          Description
-        </h2>
-        <p className="text-gray-600 leading-relaxed">{summary}</p>
+        <h2 className="text-xl font-semibold text-gray-800 mb-3">Description</h2>
+        <p className="text-gray-600 leading-relaxed">{summary ?? "No description provided."}</p>
       </div>
 
+     
       <div className="space-y-6">
         <div className="bg-white rounded-xl shadow-md p-5">
           <div className="flex justify-between text-sm text-gray-500 border-b pb-3 mb-4">

@@ -7,15 +7,15 @@ const AddJobs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const newJob = {
       title: form.title.value,
-      postedBy: form.postedBy.value,
+      postedBy: user?.email,
       category: form.category.value,
       summary: form.summary.value,
       coverImage: form.coverImage.value,
       userEmail: form.userEmail.value,
+      createdAt: new Date(),
     };
 
     form.reset();
@@ -52,14 +52,10 @@ const AddJobs = () => {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6">
       <div className="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-3xl border border-gray-100 transition-all duration-300 hover:shadow-purple-200">
-        <h2 className="text-3xl font-bold text-center mb-8">
-          Post a New Job
-        </h2>
+        <h2 className="text-3xl font-bold text-center mb-8">Post a New Job</h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-         
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-           
             <div>
               <label className="block font-medium mb-1 text-gray-700">
                 Job Title
@@ -73,7 +69,6 @@ const AddJobs = () => {
               />
             </div>
 
-          
             <div>
               <label className="block font-medium mb-1 text-gray-700">
                 Category
@@ -98,7 +93,6 @@ const AddJobs = () => {
               </select>
             </div>
 
-         
             <div>
               <label className="block font-medium mb-1 text-gray-700">
                 Posted By
@@ -113,7 +107,6 @@ const AddJobs = () => {
               />
             </div>
 
-          
             <div>
               <label className="block font-medium mb-1 text-gray-700">
                 User Email
@@ -129,7 +122,6 @@ const AddJobs = () => {
             </div>
           </div>
 
-        
           <div>
             <label className="block font-medium mb-1 text-gray-700">
               Cover Image URL
@@ -143,7 +135,6 @@ const AddJobs = () => {
             />
           </div>
 
-         
           <div>
             <label className="block font-medium mb-1 text-gray-700">
               Short Description
@@ -157,7 +148,6 @@ const AddJobs = () => {
             ></textarea>
           </div>
 
-          
           <button
             type="submit"
             className="w-full btn-style text-white py-3 rounded-xl font-semibold "

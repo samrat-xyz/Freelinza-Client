@@ -33,13 +33,13 @@ function Navbar() {
             isActive ? "nav-link-active" : ""
           }
         >
-          Add a Job
+          Add A Job
         </NavLink>
       </li>
       
       <li>
         <NavLink
-          to="/myAddedJobs"
+          to="/my-added-jobs"
           className={({ isActive }) => (isActive ? "nav-link-active" : "")}
         >
           My Added Jobs
