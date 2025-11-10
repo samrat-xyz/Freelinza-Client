@@ -13,7 +13,7 @@ function LatestJob() {
   }, []);
 
   return (
-    <div className="p-3 bg-base-200">
+    <div className="pb-18 pt-6 bg-base-200 ">
       <h2 className="heading-style font-semibold text-center mb-6 ">
         Latest Jobs
       </h2>

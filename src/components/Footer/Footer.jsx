@@ -5,7 +5,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 px-6 mt-10">
+    <footer className="bg-gray-900 text-gray-300 py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
        
         <div>

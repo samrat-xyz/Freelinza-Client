@@ -57,7 +57,7 @@ function PopularServices() {
         {services.map((service, index) => (
           <motion.div
             key={index}
-            className="p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition duration-300"
+            className="p-6 border border-[#800080] rounded-2xl shadow-md hover:shadow-xl transition duration-300"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}

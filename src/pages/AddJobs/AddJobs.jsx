@@ -50,14 +50,14 @@ const AddJobs = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6">
-      <div className="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-3xl border border-gray-100 transition-all duration-300 hover:shadow-purple-200">
+    <div className="min-h-screen flex justify-center items-center p-6">
+      <div className=" shadow-2xl rounded-3xl p-8 w-full max-w-3xl border-2 border-[#800080]  transition-all duration-300 ">
         <h2 className="text-3xl font-bold text-center mb-8">Post a New Job</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
-              <label className="block font-medium mb-1 text-gray-700">
+              <label className="block font-medium mb-1 ">
                 Job Title
               </label>
               <input
@@ -70,12 +70,12 @@ const AddJobs = () => {
             </div>
 
             <div>
-              <label className="block font-medium mb-1 text-gray-700">
+              <label className="block font-medium mb-1 ">
                 Category
               </label>
               <select
                 name="category"
-                className="w-full rounded-xl border-gray-300 focus:outline-none p-3 border"
+                className="w-full rounded-xl bg-gray-400 focus:outline-none p-3 "
                 required
                 defaultValue=""
               >
@@ -94,7 +94,7 @@ const AddJobs = () => {
             </div>
 
             <div>
-              <label className="block font-medium mb-1 text-gray-700">
+              <label className="block font-medium mb-1">
                 Posted By
               </label>
               <input
@@ -108,7 +108,7 @@ const AddJobs = () => {
             </div>
 
             <div>
-              <label className="block font-medium mb-1 text-gray-700">
+              <label className="block font-medium mb-1 ">
                 User Email
               </label>
               <input
@@ -123,7 +123,7 @@ const AddJobs = () => {
           </div>
 
           <div>
-            <label className="block font-medium mb-1 text-gray-700">
+            <label className="block font-medium mb-1 ">
               Cover Image URL
             </label>
             <input
@@ -136,13 +136,13 @@ const AddJobs = () => {
           </div>
 
           <div>
-            <label className="block font-medium mb-1 text-gray-700">
+            <label className="block font-medium mb-1">
               Short Description
             </label>
             <textarea
               name="summary"
               placeholder="Write a short job description..."
-              className="w-full rounded-xl border-gray-300 focus:outline-none p-3 border resize-none"
+              className="w-full rounded-xl focus:outline-none p-3 border resize-none"
               rows="4"
               required
             ></textarea>
@@ -150,7 +150,7 @@ const AddJobs = () => {
 
           <button
             type="submit"
-            className="w-full btn-style text-white py-3 rounded-xl font-semibold "
+            className="w-full btn-style py-3 rounded-xl font-semibold "
           >
             Add Job
           </button>

@@ -25,9 +25,9 @@ const JoinCard = () => {
         Connect with skilled freelancers and bring your projects to life with ease and confidence.
       </motion.p>
 
-      <Link to='/login' className="btn-style px-6 py-2 rounded-full">
+      <span className="btn-style px-6 py-2 rounded-full">
         Join Freelinza
-      </Link>
+      </span>
     </div>
   );
 };

@@ -87,7 +87,7 @@ function MyAddedJob() {
     <>
       <div className="max-w-5xl mx-auto mt-10 p-5 space-y-4 min-h-screen">
         {jobs.length === 0 ? (
-          <p className="text-center text-gray-500">No jobs added yet.</p>
+          <p className="text-center ">No jobs added yet.</p>
         ) : (
           jobs.map((job) => (
             <div
@@ -105,11 +105,11 @@ function MyAddedJob() {
                 />
 
                 <div className="flex-1">
-                  <h2 className="text-lg font-semibold text-gray-800">
+                  <h2 className="text-lg font-semibold ">
                     {job.title}
                   </h2>
-                  <p className="text-gray-600 mt-1">{job.summary}</p>
-                  <div className="flex flex-wrap text-gray-500 text-sm mt-2 gap-4">
+                  <p className=" mt-1">{job.summary}</p>
+                  <div className="flex flex-wrap text-sm mt-2 gap-4">
                     <span>Posted By: {job.postedBy}</span>
                     <span>Category: {job.category}</span>
                   </div>

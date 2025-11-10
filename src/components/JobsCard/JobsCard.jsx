@@ -7,7 +7,7 @@ function JobsCard({ job }) {
 
   return (
     <motion.div
-      className="border border-gray-200 bg-white rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 w-[400px] h-[250px] mx-auto flex flex-col justify-between"
+      className="border-2 border-[#800080] rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 w-[400px] h-[250px] mx-auto flex flex-col justify-between"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -20,7 +20,7 @@ function JobsCard({ job }) {
           className="w-12 h-12 rounded-full object-cover border-2 border-purple-500"
         />
         <div>
-          <p className="text-sm text-gray-500">by {postedBy}</p>
+          <p className="text-sm">by {postedBy}</p>
         </div>
       </div>
 
@@ -29,8 +29,8 @@ function JobsCard({ job }) {
         <p className="inline-block bg-yellow-100 text-[#FF2EFF] text-xs font-semibold px-2 py-1 rounded-md mb-2">
           OPPORTUNITY
         </p>
-        <h2 className="text-lg font-semibold text-gray-900 mb-2">{title}</h2>
-        <p className="text-gray-600 text-sm leading-relaxed overflow-auto h-[150px]">
+        <h2 className="text-lg font-semibold mb-2">{title}</h2>
+        <p className="text-sm leading-relaxed overflow-auto h-[150px]">
           {summary.length > 180 ? summary.slice(0, 180) + "..." : summary}
         </p>
       </div>
