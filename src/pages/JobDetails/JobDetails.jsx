@@ -2,27 +2,15 @@ import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
-import axios from "axios";
 
 function JobDetails() {
   const job = useLoaderData();
-  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const { _id, title, summary, coverImage, postedBy, category, userEmail } =
     job;
 
-  const handleAccept = async () => {
-    if (!user) {
-      Swal.fire({
-        icon: "warning",
-        title: "Login Required",
-        text: "Please log in to accept this job.",
-      });
-      navigate("/login");
-      return;
-    }
-
+  const handleAccept = () => {
     const acceptedJob = {
       jobId: _id,
       title,
@@ -31,6 +19,24 @@ function JobDetails() {
       category,
       acceptedBy: user.email,
     };
+    fetch("http://localhost:3030/my-accepted-tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(acceptedJob),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire(
+            "Job Accepted!",
+            "You have successfully accepted the job.",
+            "success"
+          );
+        }
+        navigate("/my-accepted-tasks");
+      });
   };
 
   return (
