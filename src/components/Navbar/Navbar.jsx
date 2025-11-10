@@ -36,6 +36,16 @@ function Navbar() {
           Add a Job
         </NavLink>
       </li>
+      
+      <li>
+        <NavLink
+          to="/myAddedJobs"
+          className={({ isActive }) => (isActive ? "nav-link-active" : "")}
+        >
+          My Added Jobs
+        </NavLink>
+      </li>
+
       <li>
         <NavLink
           to="/my-accepted-tasks"
