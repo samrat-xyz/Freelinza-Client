@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook,  Instagram, Linkedin } from "lucide-react";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -18,10 +19,10 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/" className="hover:text-pink-400">Home</Link></li>
-            <li><Link to="/jobs" className="hover:text-pink-400">All Jobs</Link></li>
-            <li><Link to="/add-job" className="hover:text-pink-400">Add a Job</Link></li>
-            <li><Link to="/tasks" className="hover:text-pink-400">My Accepted Tasks</Link></li>
+            <li><Link to="/" className="hover:text-[#FF2EFF]">Home</Link></li>
+            <li><Link to="/all-jobs" className="hover:text-[#FF2EFF]">All Jobs</Link></li>
+            <li><Link to="/add-jobs" className="hover:text-[#FF2EFF]">Add a Job</Link></li>
+            <li><Link to="/my-accepted-tasks" className="hover:text-[#FF2EFF]">My Accepted Tasks</Link></li>
           </ul>
         </div>
 
@@ -29,20 +30,20 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-3">Support</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/help" className="hover:text-pink-400">Help Center</Link></li>
-            <li><Link to="/privacy" className="hover:text-pink-400">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-pink-400">Terms & Conditions</Link></li>
-            <li><Link to="/contact" className="hover:text-pink-400">Contact Us</Link></li>
+            <li><Link  className="hover:text-[#FF2EFF]">Help Center</Link></li>
+            <li><Link  className="hover:text-[#FF2EFF]">Privacy Policy</Link></li>
+            <li><Link  className="hover:text-[#FF2EFF]">Terms & Conditions</Link></li>
+            <li><Link  className="hover:text-[#FF2EFF]">Contact Us</Link></li>
           </ul>
         </div>
 
         <div>
           <h3 className="text-white font-semibold mb-3">Follow Us</h3>
           <div className="flex space-x-4">
-            <Link to="#" className="hover:text-pink-400"><Facebook size={20} /></Link>
-            <Link to="#" className="hover:text-pink-400"><Twitter size={20} /></Link>
-            <Link to="#" className="hover:text-pink-400"><Instagram size={20} /></Link>
-            <Link to="#" className="hover:text-pink-400"><Linkedin size={20} /></Link>
+            <Link to="#" className="hover:text-[#FF2EFF]"><Facebook size={20} /></Link>
+            <Link to="#" className="hover:text-[#FF2EFF]"><FaSquareXTwitter size={20}/></Link>
+            <Link to="#" className="hover:text-[#FF2EFF]"><Instagram size={20} /></Link>
+            <Link to="#" className="hover:text-[#FF2EFF]"><Linkedin size={20} /></Link>
           </div>
         </div>
       </div>
