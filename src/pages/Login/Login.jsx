@@ -33,7 +33,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center ">
+    <div className="min-h-screen flex items-center justify-center px-3">
       <div className="bg-base-200 backdrop-blur-md p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
           Login to Your Account

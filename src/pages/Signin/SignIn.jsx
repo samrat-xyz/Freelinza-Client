@@ -47,7 +47,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
+    <div className="min-h-screen flex items-center justify-center px-3 mt-9">
       <div className="bg-base-200 backdrop-blur-md p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
           Create an Account
