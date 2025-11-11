@@ -1,16 +1,53 @@
-# React + Vite
+##  Project  — *Freelance MarketPlace*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Freelance MarketPlace** — it’s a full-stack web application that connects job posters and freelancers in one digital platform.
 
-Currently, two official plugins are available:
+The main goal of this project was to create a reliable and user-friendly freelance system where users can **add, update, delete, and accept jobs or tasks** with full authentication and database support.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+###  Project Concept
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I built this project to demonstrate my full-stack skills using the **MERN stack** — that means:
 
-## Expanding the ESLint configuration
+* **Frontend:** React.js
+* **Backend:** Node.js + Express.js
+* **Database:** MongoDB Atlas
+* **Authentication:** Firebase (Email/Password and Google Login)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The entire app is responsive and works smoothly across **mobile, tablet, and desktop** devices.
+
+---
+
+###  Live Demo
+
+**Live URL:** [\[Your Live Site URL Here\]](https://freelinza.netlify.app/)
+
+---
+
+###  Key Features
+
+Here are some of the major features I implemented:
+
+1. **User Authentication:** Login and registration using Firebase, including Google login.
+2. **CRUD Operations:** Users can add, edit, and delete their own job posts.
+3. **Dynamic Job System:** All jobs are fetched from MongoDB Atlas and displayed dynamically.
+4. **Accept Job Feature:** Logged-in users can accept jobs posted by *others* (not their own).
+5. **Dark/Light Theme Toggle:** Users can switch themes
+6. **Responsive UI:** Every page is optimized for mobile, tablet, and desktop views.
+7. **Custom 404 Page and Loading Spinner** for better user experience.
+
+---
+
+###  Tech Stack Summary
+
+* **Frontend:** React.js, Tailwind CSS, DaisyUI,Framer Motion
+* **Backend:** Node.js + Express.js
+* **Database:** MongoDB Atlas
+* **Auth:** Firebase Authentication
+* **Fetching:**  Axios
+* **Notifications:** SweetAlert2 / React Toastify
+* **Deployment:** Netlify (Frontend) and Vercel (Backend) 
+
+
+
+
