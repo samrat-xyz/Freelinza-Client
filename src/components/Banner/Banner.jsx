@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-
 const Banner = () => {
   return (
     <section
@@ -8,13 +7,11 @@ const Banner = () => {
                  bg-no-repeat bg-cover bg-top sm:bg-center md:bg-fixed"
       style={{
         backgroundImage:
-          "url('https://i.ibb.co/F4F1pkD4/photographer-freelancer-talks-phone-while-working-85574-958.jpg')",
+          "url('https://i.ibb.co/Y417p3Kv/modern-handsome-man-busy-his-work-drinking-coffee-285396-1647.jpg')",
       }}
     >
-      {/* dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
 
-      {/* floating lights */}
       <motion.div
         className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"
         animate={{ y: [0, 30, 0], x: [0, 20, 0] }}
@@ -26,7 +23,6 @@ const Banner = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* content */}
       <div className="relative z-10 max-w-3xl mx-auto md:mx-0 text-left px-6 md:pl-20 text-white">
         <motion.h1
           className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight"
