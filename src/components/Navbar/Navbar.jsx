@@ -55,7 +55,7 @@ function Navbar() {
   };
 
   return (
-    <div className="md:px-3 py-2 bg-base-200 shadow-md">
+    <div className="md:px-4 py-2 bg-base-200 shadow-md">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
