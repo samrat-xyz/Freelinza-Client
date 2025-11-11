@@ -116,7 +116,7 @@ function JobDetails() {
             />
             <div>
               <h3 className="font-semibold ">{postedBy}</h3>
-              <p className="text-xs text-gray-200">{userEmail}</p>
+              <p className="text-xs">{userEmail}</p>
             </div>
           </div>
 
