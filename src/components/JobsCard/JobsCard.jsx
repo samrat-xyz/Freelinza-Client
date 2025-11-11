@@ -7,7 +7,7 @@ function JobsCard({ job }) {
 
   return (
     <motion.div
-      className="border-2 border-[#800080] rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 w-[400px] h-[250px] mx-auto flex flex-col justify-between"
+      className="border-2 border-[#800080] rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 w-[350px] h-[250px] mx-auto flex flex-col justify-between"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
