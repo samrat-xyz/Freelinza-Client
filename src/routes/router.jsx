@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/all-jobs/:id',
-        loader : ({params}) => fetch(`http://localhost:3030/all-jobs/${params.id}`),
+        loader : ({params}) => fetch(`https://freelinza-server.vercel.app/all-jobs/${params.id}`),
         Component:JobDetails
       },
       {

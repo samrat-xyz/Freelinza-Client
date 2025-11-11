@@ -7,7 +7,7 @@ function LatestJob() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:3030/latest-jobs").then((data) =>
+    axios("https://freelinza-server.vercel.app/latest-jobs").then((data) =>
       setJobs(data.data)
     );
   }, []);

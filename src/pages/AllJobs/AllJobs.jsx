@@ -7,7 +7,7 @@ function AllJobs() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios("http://localhost:3030/all-jobs")
+    axios("https://freelinza-server.vercel.app/all-jobs")
     .then(data =>{
         setJobs(data.data)
         setLoading(false)

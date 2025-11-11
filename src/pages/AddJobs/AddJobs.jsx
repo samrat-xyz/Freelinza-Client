@@ -20,7 +20,7 @@ const AddJobs = () => {
 
     form.reset();
 
-    fetch("http://localhost:3030/jobs", {
+    fetch("https://freelinza-server.vercel.app/jobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

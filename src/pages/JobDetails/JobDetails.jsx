@@ -30,7 +30,7 @@ function JobDetails() {
       category,
       acceptedBy: user.email,
     };
-    fetch("http://localhost:3030/my-accepted-tasks", {
+    fetch("https://freelinza-server.vercel.app/my-accepted-tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,13 +50,13 @@ function JobDetails() {
         } else {
           Swal.fire(
             "Error",
-            "Could not accept job. Please try again later.",
+            "You have already accepted this job.",
             "error"
           );
         }
       })
       .catch((error) => {
-        console.error("Error accepting job:", error);
+       
         Swal.fire(
           "Error",
           "There was an issue accepting the job. Please try again later.",

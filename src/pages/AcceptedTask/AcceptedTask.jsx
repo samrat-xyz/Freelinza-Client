@@ -11,7 +11,7 @@ function AcceptedTask() {
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      fetch(`http://localhost:3030/my-accepted-tasks?email=${user.email}`)
+      fetch(`https://freelinza-server.vercel.app/my-accepted-tasks?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setTasks(data);
@@ -31,7 +31,7 @@ function AcceptedTask() {
       confirmButtonText: "Yes, Done!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3030/my-accepted-tasks/${id}`, {
+        fetch(`https://freelinza-server.vercel.app/my-accepted-tasks/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

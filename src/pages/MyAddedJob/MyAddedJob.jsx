@@ -10,10 +10,10 @@ function MyAddedJob() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3030/jobs?email=${user.email}`)
+      fetch(`https://freelinza-server.vercel.app/jobs?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setJobs(data))
-        .catch((err) => console.error(err));
+       
     }
   }, [user]);
 
@@ -28,7 +28,7 @@ function MyAddedJob() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3030/jobs/${id}`, { method: "DELETE" })
+        fetch(`https://freelinza-server.vercel.app/jobs/${id}`, { method: "DELETE" })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -54,7 +54,7 @@ function MyAddedJob() {
       coverImage: e.target.coverImage.value,
     };
 
-    fetch(`http://localhost:3030/jobs/${selectedJob._id}`, {
+    fetch(`https://freelinza-server.vercel.app/jobs/${selectedJob._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedJob),
@@ -80,7 +80,7 @@ function MyAddedJob() {
         }
         document.getElementById("update_modal").close();
       })
-      .catch((err) => console.error(err));
+      
   };
 
   return (
