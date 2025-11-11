@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router";
 
 const JoinCard = () => {
   return (
@@ -31,11 +30,11 @@ const JoinCard = () => {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
         viewport={{ once: true }}
       >
-        <Link to="/join">
+        
           <span className="btn-style px-6 py-2 rounded-full inline-block">
             Join Freelinza
           </span>
-        </Link>
+        
       </motion.div>
     </div>
   );
