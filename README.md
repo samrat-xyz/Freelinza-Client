@@ -20,7 +20,7 @@ The entire app is responsive and works smoothly across **mobile, tablet, and des
 
 ###  Live Demo
 
-**Live URL:** [\[Your Live Site URL Here\]](https://freelinza.netlify.app/)
+**Live URL:** https://freelinza.netlify.app/
 
 ---
 
